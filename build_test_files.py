@@ -1,5 +1,3 @@
-from argparse import _AppendAction
-
 import openpyxl
 from collections import OrderedDict
 
@@ -32,10 +30,10 @@ def write_test_data():
     wb.create_sheet(title='Weights')
     sheet = wb.get_sheet_by_name('Weights')
     data = OrderedDict()
-    data['date'] = ['2017-01-01', '2017-02-02', '2017-03-03', '2017-04-04', ]
-    data['id_nr'] = ['', '', '', '', ]
-    data['pnr'] = ['200101011234', '200202022468', '200101011234', '200202022468', ]
-    data['weight'] = [34.5, 35.5, 36.6, 37.5]
+    data['date'] = ['2017-01-01', '2017-02-02', '2017-03-03', '2017-04-04', '2018-12-12']
+    data['id_nr'] = ['', '', '', '', '']
+    data['pnr'] = ['200101011234', '200202022468', '200101011234', '200202022468', '202002022222']
+    data['weight'] = [34.5, 35.5, 36.6, 37.5, 22.2]
     fill_sheet(sheet, data)
     wb.save('testdata/unmapped_data.xlsx')
 

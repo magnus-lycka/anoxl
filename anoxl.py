@@ -82,7 +82,11 @@ class AnoXL:
             filetypes=(("Excel Workbook", "*.xlsx"), ("All Files", "*.*")),
             title="Store data with anonymous id added here."
         )
-        data_file.save(path)
+        if path:
+            data_file.save(path)
+            self.log('Saved ' + path)
+        else:
+            self.log('No file name provided. Nothing saved.')
 
 
 class MappingFile:
@@ -149,9 +153,12 @@ class DataFile:
             return
         for row in range(2, ws.max_row + 1):
             sens_id = ws.cell(row=row, column=sens_ix).value
-            anon_id = self.mapping[sens_id]
-            ws.cell(row=row, column=anon_ix).value = anon_id
-            n += 1
+            anon_id = self.mapping.get(sens_id)
+            if anon_id:
+                ws.cell(row=row, column=anon_ix).value = anon_id
+                n += 1
+            else:
+                self.log('No anonymous id found for ' + sens_id)
         self.log('Processed {} rows.'.format(n))
 
     def save(self, path):
