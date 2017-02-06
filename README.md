@@ -1,16 +1,27 @@
 # anoxl
 
 A tool for adding an anonymous id for tabular data in Excel Workbooks.
-N.B. The script does not remove the sensitive data, it just adds the
+
+<dl>
+<dt>N.B.</dt>
+<dd>
+     The script does not remove the sensitive data, it just adds the
      anonymous id. Be sure to remove the sensitive id in all worksheets
      before sharing data.
+     </dd>
+</dl>
 
 ## Mode of operation
 
 You need a "mapping workbook" where the active worksheet has a column with
 the sensitive id, and a column with the anonymous id. The first row in the
 worksheet should contain the names of the ids, and row two and below should 
-contain all the ids.
+contain all the ids. Like this:
+
+|personnummer|anon_id|
+|------------|------:|
+|201201019999|123    |
+|201101018888|345    |
 
 The workbook where you want the anonymous ids added need to have columns for
 the sensitive ids and the anonymous ids in each worksheet where you want
