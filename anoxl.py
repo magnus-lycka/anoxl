@@ -137,7 +137,6 @@ class DataFile:
         sens_ix = 0
         for col in range(1, ws.max_column + 1):
             value = ws.cell(column=col, row=1).value
-            self.log('Found column ' + value)
             if value == self.anon_id_name:
                 anon_ix = col
             elif value == self.sens_id_name:

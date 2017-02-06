@@ -36,3 +36,4 @@ Having done that, you select a data file where you want to add anonymous ids.
 Progress is logged in the GUI, and you are asked where to save the changed
 data. After that, you can select additional datafiles to process.
 
+![shreenshot](anoxl_screenshot.png "Anoxl Screenshot")
